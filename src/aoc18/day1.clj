@@ -7,6 +7,6 @@
   (loop [deltas (cycle deltas) freq 0 seen #{0}]
     (let [delta (first deltas)
           next  (+ freq delta)]
-      (cond 
-        (seen next) next
-        :else (recur (rest deltas) next (conj seen next))))))
+      (if (seen next) 
+        next
+        (recur (rest deltas) next (conj seen next))))))
