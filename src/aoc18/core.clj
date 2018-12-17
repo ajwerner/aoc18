@@ -15,4 +15,5 @@
   (println "2.2) " (day2/find-close inputs/day2))
   (println "3.1) " (day3/overlapping-claims inputs/day3))
   (println "3.2) " (day3/unoverlapping-claim inputs/day3))
-  (println "4.1) " (day4/best-spot inputs/day4)))
+  (println "4.1) " (day4/best-spot inputs/day4))
+  (println "4.2) " (day4/minute-most-asleep inputs/day4)))

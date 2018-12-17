@@ -93,3 +93,29 @@
                        minute-keys)
         best-time (max-by-val minute-counts)]
     (* guard-with-max (+ (* 24 (first best-time)) (second best-time)))))
+
+(defn minute-most-asleep [records]
+  (let [grouped (->  records 
+                    (parse-records)
+                    (sort-entries)
+                    (group-entries))
+        guard-intervals (map
+                         (fn [[guard intervals]] 
+                           (->> intervals
+                            (map interval-times)
+                            (apply concat)
+                            (reduce
+                             (fn [m minute]
+                               (update m [guard minute] #(if (some? %) (inc %) 1)))
+                             {})
+                            (into {})
+                            ((fn [m] 
+                               (let [k  (max-by-val m)]
+                                 [(get m k) k])))
+                            ))
+                         grouped)
+        [_ [guard [hour min]]] (reduce 
+                                (fn [cur v] 
+                                  (if (> (first cur) (first v)) cur v)) 
+         [0] guard-intervals)]
+    (* guard (+ (* 24 hour) min))))
