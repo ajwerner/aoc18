@@ -5,6 +5,7 @@
    [aoc18.day3 :as day3]
    [aoc18.day4 :as day4]
    [aoc18.day5 :as day5]
+   [aoc18.day6 :as day6]
    [aoc18.inputs :as inputs])
   (:gen-class))
 
@@ -19,4 +20,6 @@
   (println "4.1) " (day4/best-spot inputs/day4))
   (println "4.2) " (day4/minute-most-asleep inputs/day4))
   (println "5.1) " (day5/reacted-len inputs/day5))
-  (println "5.2) " (day5/shortest-with-elimination inputs/day5)))
+  (println "5.2) " (day5/shortest-with-elimination inputs/day5))
+  (println "6.1) " (day6/find-largest-area inputs/day6))
+  (println "6.2) " (day6/count-within-bounded-distance inputs/day6 10000)))

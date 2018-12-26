@@ -28,7 +28,6 @@
 (defn reacted-len [polymer]
   (count (react (seq polymer))))
 
-
 (def letters 
   (seq "abcdefghijklmnopqrstuvwxyz"))
 
